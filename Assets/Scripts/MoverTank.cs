@@ -31,6 +31,17 @@ public class MoverTank : Mover
         transform.Rotate(0, rotationAmount, 0);
     }
 
+    public override void RotateTowards(Vector3 position, float turnSpeed)
+    {
+        Vector3 vectorToTarget = position - transform.position;
+        // Prevent viewing vector being 0
+        if (vectorToTarget.sqrMagnitude <= 1e-6f)
+            return;
+
+        Quaternion lookRotation = Quaternion.LookRotation(vectorToTarget);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, turnSpeed * Time.deltaTime);
+    }
+
     public override void Shoot()
     {
         throw new System.NotImplementedException();

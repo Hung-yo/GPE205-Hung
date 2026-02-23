@@ -7,10 +7,18 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject playerControllerPrefab;
     public GameObject playerPawnPrefab;
+    public GameObject lazyEnemyPrefab;
+    public GameObject chaseEnemyPrefab;
+    public GameObject runnerEnemyPrefab;
+    public GameObject patrolEnemyPrefab;
     public GameObject playerCameraPrefab;
     public List<Pawn> tanks;
+    public Pawn playerPawn;
     public List<Controller> players;
     public List<Camera> cameras;
+    public Vector3 playerSpawnLocation;
+    public Vector3 enemySpawnLocation;
+    public Transform[] enemyWaypoints;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -44,35 +52,57 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SpawnPlayer();
+        SpawnEnemies();
     }
 
     public void SpawnPlayer()
     {
-        Pawn tempTankPawn = SpawnTank(playerPawnPrefab);
+        Pawn tempTankPawn = SpawnTank(playerPawnPrefab, playerSpawnLocation);
+        playerPawn = tempTankPawn;
         Controller tempPlayerController = SpawnPlayerController(playerControllerPrefab);
 
         Camera tempPlayerCamera = SpawnPlayerCamera(playerCameraPrefab);
         PlayerCamera playerCamera = tempPlayerCamera.GetComponent<PlayerCamera>();
         playerCamera.pawn = tempTankPawn.gameObject;
         tempPlayerController.Possess(tempTankPawn);
+
+        foreach (Controller c in players)
+        {
+            ControllerAI ai = c as ControllerAI;
+            if (ai != null)
+                ai.target = tempTankPawn.transform;
+        }
+    }
+    public void SpawnEnemies()
+    {
+        SpawnTank(lazyEnemyPrefab, enemySpawnLocation);
     }
 
-    public Pawn SpawnTank(GameObject prefab)
+    public Pawn SpawnTank(GameObject prefab, Vector3 position)
     {
-        GameObject tempTankObject = Instantiate<GameObject>(prefab, Vector3.zero, Quaternion.identity);
-        return tempTankObject.GetComponent<Pawn>();
+        GameObject tempTankObject = Instantiate<GameObject>(prefab, position, Quaternion.identity);
+        Pawn pawn = tempTankObject.GetComponent<Pawn>();
+        if (pawn != null && !tanks.Contains(pawn))
+            tanks.Add(pawn);
+        return pawn;
     }
 
     public Controller SpawnPlayerController(GameObject prefab)
     {
         GameObject tempPlayer = Instantiate<GameObject>(prefab, Vector3.zero, Quaternion.identity);
-        return tempPlayer.GetComponent<Controller>();
+        Controller ctrl = tempPlayer.GetComponent<Controller>();
+        if (ctrl != null && !players.Contains(ctrl))
+            players.Add(ctrl);
+        return ctrl;
     }
 
     public Camera SpawnPlayerCamera(GameObject prefab)
     {
         GameObject tempPlayerCamera = Instantiate<GameObject>(prefab, Vector3.zero, Quaternion.Euler(90, 0, 0));
-        return tempPlayerCamera.GetComponent<Camera>();
+        Camera cam = tempPlayerCamera.GetComponent<Camera>();
+        if (cam != null && !cameras.Contains(cam))
+            cameras.Add(cam);
+        return cam;
         
         
     }

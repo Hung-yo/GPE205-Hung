@@ -4,7 +4,10 @@ public abstract class Controller : MonoBehaviour
 {
     public Pawn pawn;
 
-    // Update is called once per frame
+    public virtual void Start()
+    {
+    }
+
     public virtual void Update()
     {
         MakeDecisions();

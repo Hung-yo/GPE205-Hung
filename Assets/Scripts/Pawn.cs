@@ -10,6 +10,7 @@ public abstract class Pawn : MonoBehaviour
     
     public abstract void Move(UnityEngine.Vector3 directionToMove);
     public abstract void Rotate(UnityEngine.Vector3 directionToRotate);
+    public abstract void RotateTowards(UnityEngine.Vector3 position, float turnSpeed);
     public abstract void Shoot();
 
     public Controller GetController()

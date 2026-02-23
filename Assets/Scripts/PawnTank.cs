@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class PawnTank : Pawn
 {
+    public float shootForce;
+    private Shooter shooter;
+    public NoiseMaker noiseMaker;
     public override void Start()
     {
         base.Start();
-        GameManager.instance.tanks.Add(this);
+        if (GameManager.instance != null && !GameManager.instance.tanks.Contains(this))
+            GameManager.instance.tanks.Add(this);
+        shooter = GetComponent<Shooter>();
     }
     public void OnDestroy()
     {
@@ -14,6 +19,10 @@ public class PawnTank : Pawn
 
     public override void Move(Vector3 directionToMove)
     {
+        if (noiseMaker != null)
+        {
+            noiseMaker.AddNoise(.1f);
+        }
         Vector2 moveDirection = new Vector2(directionToMove.x, directionToMove.z);
         mover.Move(moveDirection, moveSpeed);
     }
@@ -26,6 +35,15 @@ public class PawnTank : Pawn
 
     public override void Shoot()
     {
-        Debug.Log("Shooting!");
+        if (noiseMaker != null)
+        {
+            noiseMaker.AddNoise(.1f);
+        }
+        shooter.Shoot();
+    }
+
+    public override void RotateTowards(Vector3 position, float turnSpeed)
+    {
+        mover.RotateTowards(position, turnSpeed);
     }
 }

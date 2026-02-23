@@ -34,13 +34,15 @@ public class ControllerPlayer : Controller
         }
     }
 
-    void Start()
+    public override void Start()
     {
-        GameManager.instance.players.Add(this);
+        if (GameManager.instance != null && !GameManager.instance.players.Contains(this))
+            GameManager.instance.players.Add(this);
     }
     public void OnDestroy()
     {
-        GameManager.instance.players.Remove(this);
+        if (GameManager.instance != null)
+            GameManager.instance.players.Remove(this);
     }
 
     public override void Update()
