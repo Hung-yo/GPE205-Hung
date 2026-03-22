@@ -5,6 +5,8 @@ public abstract class Pawn : MonoBehaviour
 {
     protected Mover mover;
     [HideInInspector] public Controller controller;
+    [HideInInspector] public PlayerCamera playerCamera;
+    [HideInInspector] public Health health;
     public float moveSpeed = 200;
     public float turnSpeed = 250;
     
@@ -21,5 +23,11 @@ public abstract class Pawn : MonoBehaviour
     public virtual void Start()
     {
         mover = GetComponent<Mover>();
+        health = GetComponent<Health>();
+    }
+
+    public void IncreaseSpeed(float amount)
+    {
+        moveSpeed += amount;
     }
 }

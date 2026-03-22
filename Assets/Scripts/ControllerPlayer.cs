@@ -9,6 +9,10 @@ public class ControllerPlayer : Controller
     public KeyCode turnLeftKey;
     public KeyCode shootKey;
     public KeyCode reloadKey;
+    public KeyCode zoomNorthKey;
+    public KeyCode zoomSouthKey;
+    public KeyCode zoomEastKey;
+    public KeyCode zoomWestKey;
 
     public override void MakeDecisions()
     {
@@ -28,9 +32,35 @@ public class ControllerPlayer : Controller
         {
             pawn.Rotate(Vector3.right);
         }
+
+        if (Input.GetKeyDown(moveForwardKey) || 
+        Input.GetKeyDown(moveBackwardKey) || 
+        Input.GetKeyDown(turnRightKey) || 
+        Input.GetKeyDown(turnLeftKey))
+        {
+            pawn.playerCamera.ResetOffset();
+        }
+        
         if (Input.GetKeyDown(shootKey))
         {
             pawn.Shoot();
+        }
+
+        if (Input.GetKeyDown(zoomNorthKey))
+        {
+            pawn.playerCamera.ChangeOffsetZ(10);
+        }
+        if (Input.GetKeyDown(zoomSouthKey))
+        {
+            pawn.playerCamera.ChangeOffsetZ(-10);
+        }
+        if (Input.GetKeyDown(zoomEastKey))
+        {
+            pawn.playerCamera.ChangeOffsetX(10);
+        }
+        if (Input.GetKeyDown(zoomWestKey))
+        {
+            pawn.playerCamera.ChangeOffsetX(-10);
         }
     }
 

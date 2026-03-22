@@ -154,8 +154,6 @@ public abstract class ControllerAI : Controller
     {
         if (waypoints != null && waypoints.Length > 0)
             return waypoints;
-        if (GameManager.instance != null && GameManager.instance.enemyWaypoints != null && GameManager.instance.enemyWaypoints.Length > 0)
-            return GameManager.instance.enemyWaypoints;
         return null;
     }
 

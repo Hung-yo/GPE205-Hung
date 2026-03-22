@@ -36,4 +36,9 @@ public class Health : MonoBehaviour
             currentHealth = maxHealth;
         }
     }
+
+    public void IncreaseMaxHealth(float amount)
+    {
+        maxHealth += amount;
+    }
 }

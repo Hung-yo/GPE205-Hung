@@ -152,7 +152,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCamera
   pawn: {fileID: 0}
   offsetX: 0
-  offsetY: 25
+  offsetY: 50
   offsetZ: 0
-  offsetZMaximum: 5
-  offsetZMinimum: 5
+  offsetXMaximum: 20
+  offsetXMinimum: -20
+  offsetYMaximum: 50
+  offsetYMinimum: 50
+  offsetZMaximum: 20
+  offsetZMinimum: -20

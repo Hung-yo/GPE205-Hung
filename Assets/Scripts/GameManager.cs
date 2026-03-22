@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public Level level;
     public GameObject playerControllerPrefab;
     public GameObject playerPawnPrefab;
     public GameObject lazyEnemyPrefab;
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     public Pawn playerPawn;
     public List<Controller> players;
     public List<Camera> cameras;
+    public List<PlayerSpawn> playerSpawnPoints = new List<PlayerSpawn>();
+    public List<EnemySpawn> enemySpawnPoints = new List<EnemySpawn>();
     public Vector3 playerSpawnLocation;
     public Vector3 enemySpawnLocation;
     public Transform[] enemyWaypoints;
@@ -51,19 +54,34 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        level.mapGenerator.GenerateMap();
         SpawnPlayer();
         SpawnEnemies();
     }
 
     public void SpawnPlayer()
     {
+        Vector3 playerSpawnPosition;
+        if (playerSpawnPoints == null || playerSpawnPoints.Count < 1)
+        {
+            Debug.Log("No spawnpoints found, defaulting to origin");
+            playerSpawnPosition = Vector3.zero;
+        } else
+        {
+            Transform playerSpawn = playerSpawnPoints[Random.Range(0, playerSpawnPoints.Count)].transform;
+            playerSpawnPosition = playerSpawn.position;
+        }
+        
         Pawn tempTankPawn = SpawnTank(playerPawnPrefab, playerSpawnLocation);
         playerPawn = tempTankPawn;
+        playerPawn.transform.position = playerSpawnPosition;
         Controller tempPlayerController = SpawnPlayerController(playerControllerPrefab);
+        tempTankPawn.controller = tempPlayerController;
 
         Camera tempPlayerCamera = SpawnPlayerCamera(playerCameraPrefab);
         PlayerCamera playerCamera = tempPlayerCamera.GetComponent<PlayerCamera>();
         playerCamera.pawn = tempTankPawn.gameObject;
+        tempTankPawn.playerCamera = playerCamera;
         tempPlayerController.Possess(tempTankPawn);
 
         foreach (Controller c in players)
@@ -75,7 +93,29 @@ public class GameManager : MonoBehaviour
     }
     public void SpawnEnemies()
     {
-        SpawnTank(lazyEnemyPrefab, enemySpawnLocation);
+        
+    }
+
+    public void SpawnEnemy()
+    {
+        if (enemySpawnPoints != null && enemySpawnPoints.Count > 0)
+        {
+            EnemySpawn spawnPoint = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Count)];
+            if (spawnPoint == null)
+                return;
+
+            GameObject tempTankObject = Instantiate(patrolEnemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+            Pawn pawn = tempTankObject.GetComponent<Pawn>();
+            if (pawn != null && !tanks.Contains(pawn))
+                tanks.Add(pawn);
+
+            // If the enemy uses patrol points, pass on patrol points from the spawner
+            ControllerAI ai = tempTankObject.GetComponent<ControllerAI>();
+            if (ai != null && spawnPoint.waypoints != null && spawnPoint.waypoints.Length > 0)
+            {
+                ai.waypoints = spawnPoint.waypoints;
+            }
+        }
     }
 
     public Pawn SpawnTank(GameObject prefab, Vector3 position)

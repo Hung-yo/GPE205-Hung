@@ -114,6 +114,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1e80079550005814390942b25841c83f, type: 3}
       insertIndex: -1
       addedObject: {fileID: -8540967046492402227}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1e80079550005814390942b25841c83f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5808514115304419027}
   m_SourcePrefab: {fileID: 100100000, guid: 1e80079550005814390942b25841c83f, type: 3}
 --- !u!4 &1237717722076909208 stripped
 Transform:
@@ -138,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PawnTank
   controller: {fileID: 0}
+  health: {fileID: 0}
   moveSpeed: 10
   turnSpeed: 200
   shootForce: 600
@@ -222,6 +226,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1514511843396792466, guid: 331af5a8c5e1ceb44bdd21ef642c77c2, type: 3}
   cooldownTimer: 0
   cooldownAmount: 0.5
+  damageAmount: 1
   pawn: {fileID: 5087375670904188032}
 --- !u!114 &-4039530635657374185
 MonoBehaviour:
@@ -235,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0cdbcb47d349647b60f3e44d7953ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  currentHealth: 5
+  currentHealth: 3
   maxHealth: 5
   death: {fileID: -2580012390189500113}
 --- !u!114 &-2580012390189500113
@@ -265,3 +270,15 @@ MonoBehaviour:
   noiseVolume: 0.1
   decayRate: 2
   maxNoise: 7
+--- !u!114 &5808514115304419027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902367431287493666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf722f75d2ca0347be8ccc0138031de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerupManager
