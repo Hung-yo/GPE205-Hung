@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 public enum RandomType { Random, Seeded, MapOfTheDay };
 public class MapGenerator : MonoBehaviour
 {
     public int seed;
+    public TMP_InputField seedInputField;
     public RandomType randomType;
+    public TMP_Dropdown typeDropdown;
     public List<Tile> availableTiles;
     public Tile bossTile;
     public Vector2 bossTileLocation;
@@ -27,6 +30,26 @@ public class MapGenerator : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UpdateGenerationType()
+    {
+        if (typeDropdown.options[typeDropdown.value].text == "Random Map")
+        {
+            randomType = RandomType.Random;
+        }
+        else if (typeDropdown.options[typeDropdown.value].text == "Custom Seed")
+        {
+            randomType = RandomType.Seeded;
+            if (!int.TryParse(seedInputField.text, out seed))
+            {
+                seed = 0; // In case the user enters letters or something, default to 0
+            }
+        }
+        else
+        {
+            randomType = RandomType.MapOfTheDay;
+        }
     }
 
     public void InitializeRandom()

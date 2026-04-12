@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PawnTank : Pawn
 {
+    public string playerID;
     public float shootForce;
     private Shooter shooter;
     public NoiseMaker noiseMaker;

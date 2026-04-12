@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1352803287756124185, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: m_Volume
+      value: 0.044
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352803287756124185, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 752594676825322466, guid: ff23dca1beca89145861bdfb69375117, type: 2}
+    - target: {fileID: 1352803287756124185, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.122
+      objectReference: {fileID: 0}
     - target: {fileID: 1580579197448502576, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.4341254
@@ -53,6 +65,14 @@ PrefabInstance:
       value: AI_Chase
       objectReference: {fileID: 0}
     - target: {fileID: 2361294768117325731, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e08ce1fe253f6bf4180c79a9b8067a41, type: 3}
+    - target: {fileID: 2361294768117325731, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6926483103952504595}
+    - target: {fileID: 2361294768117325731, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
       propertyPath: cooldownAmount
       value: 1.5
       objectReference: {fileID: 0}
@@ -60,19 +80,58 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4781667105624219432, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: noiseMaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842123417950234047, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 1583745998995581688}
+    - target: {fileID: 4842123417950234047, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: scoreAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7018097926365552179, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: m_Volume
+      value: 0.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 7018097926365552179, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: daf65de97aff35746b17ba9dfb1a5448, type: 3}
+    - target: {fileID: 7018097926365552179, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 752594676825322466, guid: ff23dca1beca89145861bdfb69375117, type: 2}
+    - target: {fileID: 7018097926365552179, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.081
+      objectReference: {fileID: 0}
     - target: {fileID: 7044697291618178897, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 3596058430319696733}
     m_RemovedComponents:
     - {fileID: 8614163251011539167, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+    - {fileID: 1260770607177357629, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+    - {fileID: 5108352923928571950, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+    - {fileID: 989237668750786149, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2208040124824577930, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3596058430319696733}
+    - targetCorrespondingSourceObject: {fileID: 2208040124824577930, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1583745998995581688}
   m_SourcePrefab: {fileID: 100100000, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+--- !u!82 &1422181053356190009 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7018097926365552179, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+  m_PrefabInstance: {fileID: 8275875327825852170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3495413601032497186 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4781667105624219432, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
@@ -84,6 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c71b06f790c1943ad299c4fa5b08a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PawnTank
+--- !u!82 &6926483103952504595 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1352803287756124185, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
+  m_PrefabInstance: {fileID: 8275875327825852170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7817501319995904128 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2208040124824577930, guid: e941e9fe27566414eb6198c2d45b0fa4, type: 3}
@@ -103,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ControllerAI_Chase
   pawn: {fileID: 3495413601032497186}
   target: {fileID: 0}
+  pawnTank: {fileID: 0}
   fleeDistance: 10
   visionDistance: 15
   hearingDistance: 15
@@ -110,3 +175,16 @@ MonoBehaviour:
   waypoints: []
   waypointTolerance: 1
   loopWaypoints: 1
+--- !u!114 &1583745998995581688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817501319995904128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c589c351b2c51574bba7aa1ae1c8e61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathDestroy
+  deathClip: {fileID: 1422181053356190009}

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
+    public Camera cam;
     public GameObject pawn;
     public float offsetX;
     public float offsetY;
@@ -12,7 +13,11 @@ public class PlayerCamera : MonoBehaviour
     public float offsetYMinimum;
     public float offsetZMaximum;
     public float offsetZMinimum;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    void Awake()
+    {
+        cam = GetComponent<Camera>();
+    }
     void Start()
     {
         transform.rotation = Quaternion.Euler(90, 0, 0);
@@ -22,6 +27,18 @@ public class PlayerCamera : MonoBehaviour
     void Update()
     {
         transform.position = pawn.transform.position + pawn.transform.rotation * new Vector3(offsetX, offsetY, offsetZ);
+    }
+
+    public void SetRect(string playerID)
+    {
+        if (playerID == "p1" && GameManager.numOfPlayers == 2)
+        {
+            cam.rect = new Rect(0f, 0f, .5f, 1f);
+        }
+        else if (playerID == "p2")
+        {
+            cam.rect = new Rect(.5f, 0f, .5f, 1f);
+        }
     }
 
     public void ChangeOffsetX(float amount)

@@ -3,64 +3,69 @@ using UnityEngine.InputSystem;
 
 public class ControllerPlayer : Controller
 {
-    public KeyCode moveForwardKey;
-    public KeyCode moveBackwardKey;
-    public KeyCode turnRightKey;
-    public KeyCode turnLeftKey;
-    public KeyCode shootKey;
-    public KeyCode reloadKey;
-    public KeyCode zoomNorthKey;
-    public KeyCode zoomSouthKey;
-    public KeyCode zoomEastKey;
-    public KeyCode zoomWestKey;
+    public string playerID;
+    public KeyCode p1MoveForwardKey;
+    public KeyCode p1MoveBackwardKey;
+    public KeyCode p1TurnRightKey;
+    public KeyCode p1TurnLeftKey;
+    public KeyCode p1ShootKey;
+    public KeyCode p1ReloadKey;
+    public KeyCode p2MoveForwardKey;
+    public KeyCode p2MoveBackwardKey;
+    public KeyCode p2TurnRightKey;
+    public KeyCode p2TurnLeftKey;
+    public KeyCode p2ShootKey;
+    public KeyCode p2ReloadKey;
 
     public override void MakeDecisions()
     {
-        if (Input.GetKey(moveForwardKey))
+        if (playerID == "p1")
         {
-            pawn.Move(Vector3.forward);
+            if (Input.GetKey(p1MoveForwardKey))
+            {
+                pawn.Move(Vector3.forward);
+            }
+            if (Input.GetKey(p1MoveBackwardKey))
+            {
+                pawn.Move(-Vector3.forward);
+            }
+            if (Input.GetKey(p1TurnRightKey))
+            {
+                pawn.Rotate(-Vector3.right);
+            }
+            if (Input.GetKey(p1TurnLeftKey))
+            {
+                pawn.Rotate(Vector3.right);
+            }
+            
+            if (Input.GetKeyDown(p1ShootKey))
+            {
+                pawn.Shoot();
+            }
         }
-        if (Input.GetKey(moveBackwardKey))
+        else if (playerID == "p2")
         {
-            pawn.Move(-Vector3.forward);
-        }
-        if (Input.GetKey(turnRightKey))
-        {
-            pawn.Rotate(-Vector3.right);
-        }
-        if (Input.GetKey(turnLeftKey))
-        {
-            pawn.Rotate(Vector3.right);
-        }
-
-        if (Input.GetKeyDown(moveForwardKey) || 
-        Input.GetKeyDown(moveBackwardKey) || 
-        Input.GetKeyDown(turnRightKey) || 
-        Input.GetKeyDown(turnLeftKey))
-        {
-            pawn.playerCamera.ResetOffset();
-        }
-        
-        if (Input.GetKeyDown(shootKey))
-        {
-            pawn.Shoot();
-        }
-
-        if (Input.GetKeyDown(zoomNorthKey))
-        {
-            pawn.playerCamera.ChangeOffsetZ(10);
-        }
-        if (Input.GetKeyDown(zoomSouthKey))
-        {
-            pawn.playerCamera.ChangeOffsetZ(-10);
-        }
-        if (Input.GetKeyDown(zoomEastKey))
-        {
-            pawn.playerCamera.ChangeOffsetX(10);
-        }
-        if (Input.GetKeyDown(zoomWestKey))
-        {
-            pawn.playerCamera.ChangeOffsetX(-10);
+            if (Input.GetKey(p2MoveForwardKey))
+            {
+                pawn.Move(Vector3.forward);
+            }
+            if (Input.GetKey(p2MoveBackwardKey))
+            {
+                pawn.Move(-Vector3.forward);
+            }
+            if (Input.GetKey(p2TurnRightKey))
+            {
+                pawn.Rotate(-Vector3.right);
+            }
+            if (Input.GetKey(p2TurnLeftKey))
+            {
+                pawn.Rotate(Vector3.right);
+            }
+            
+            if (Input.GetKeyDown(p2ShootKey))
+            {
+                pawn.Shoot();
+            }
         }
     }
 

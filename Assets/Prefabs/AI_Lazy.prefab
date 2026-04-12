@@ -17,6 +17,14 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: -4039530635657374185, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 2996253796614292937}
+    - target: {fileID: -4039530635657374185, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: scoreAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4039530635657374185, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
       propertyPath: currentHealth
       value: 5
       objectReference: {fileID: 0}
@@ -76,10 +84,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1586400382903157681, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: m_Volume
+      value: 0.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586400382903157681, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586400382903157681, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586400382903157681, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 752594676825322466, guid: ff23dca1beca89145861bdfb69375117, type: 2}
+    - target: {fileID: 1586400382903157681, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.118
+      objectReference: {fileID: 0}
     - target: {fileID: 1902367431287493666, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
       propertyPath: m_Name
       value: AI_Lazy
       objectReference: {fileID: 0}
+    - target: {fileID: 2596070951842786315, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e08ce1fe253f6bf4180c79a9b8067a41, type: 3}
     - target: {fileID: 2596070951842786315, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
       propertyPath: cooldownAmount
       value: 1.5
@@ -88,13 +120,44 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    - target: {fileID: 5573440330406171626, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: compass
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324914799265918363, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: m_Volume
+      value: 0.059
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324914799265918363, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: daf65de97aff35746b17ba9dfb1a5448, type: 3}
+    - target: {fileID: 7324914799265918363, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324914799265918363, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 752594676825322466, guid: ff23dca1beca89145861bdfb69375117, type: 2}
+    - target: {fileID: 7324914799265918363, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -7656908824470820203, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+    - {fileID: 4766666826526786438, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+    - {fileID: 5573440330406171626, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 820289294489653980, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1902367431287493666, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8614163251011539167}
+    - targetCorrespondingSourceObject: {fileID: 1902367431287493666, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2996253796614292937}
   m_SourcePrefab: {fileID: 100100000, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
 --- !u!1 &2208040124824577930 stripped
 GameObject:
@@ -115,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ControllerAI_Lazy
   pawn: {fileID: 4781667105624219432}
   target: {fileID: 0}
+  pawnTank: {fileID: 0}
   fleeDistance: 10
   visionDistance: 15
   hearingDistance: 15
@@ -124,6 +188,19 @@ MonoBehaviour:
   loopWaypoints: 1
   hasFleed: 0
   fleeDuration: 5
+--- !u!114 &2996253796614292937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2208040124824577930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c589c351b2c51574bba7aa1ae1c8e61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathDestroy
+  deathClip: {fileID: 7018097926365552179}
 --- !u!114 &4781667105624219432 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5087375670904188032, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
@@ -135,3 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c71b06f790c1943ad299c4fa5b08a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PawnTank
+--- !u!82 &7018097926365552179 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7324914799265918363, guid: ce39e7404a7353c4b9482e0e51c9dbdc, type: 3}
+  m_PrefabInstance: {fileID: 342864911498720168}
+  m_PrefabAsset: {fileID: 0}

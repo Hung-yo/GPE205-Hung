@@ -7,6 +7,8 @@ public class ShooterTank : Shooter
     public float cooldownAmount;
     public float damageAmount;
     public PawnTank pawn;
+    public AudioSource audioSource;
+    public AudioClip shootSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,5 +40,10 @@ public class ShooterTank : Shooter
             bullet.damageAmount = damageAmount;
         Rigidbody rb = bulletObject.GetComponent<Rigidbody>();
         rb.AddForce(muzzleLocation.forward * pawn.shootForce);
+
+        if (shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
+        }
     }
 }

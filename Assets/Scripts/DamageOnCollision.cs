@@ -3,9 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class DamageOnCollision : MonoBehaviour
 {
+    public AudioSource deathClip;
     public float damageAmount;
     public bool destroyOnCollision = false;
     public GameObject objectFiredBy;
+    public string playerID;
     private Collider _collider;
     public Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,6 +31,10 @@ public class DamageOnCollision : MonoBehaviour
         }
         if (destroyOnCollision)
         {
+            if (deathClip != null)
+            {
+                AudioSource.PlayClipAtPoint(deathClip.clip, transform.position);
+            }
             Destroy(gameObject);
         }
     }

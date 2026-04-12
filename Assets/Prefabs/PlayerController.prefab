@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7307610105913150297}
   - component: {fileID: 1575999354659516331}
   m_Layer: 0
-  m_Name: PlayerObject
+  m_Name: PlayerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,14 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControllerPlayer
   pawn: {fileID: 0}
-  playerCamera: {fileID: 0}
-  moveForwardKey: 119
-  moveBackwardKey: 115
-  turnRightKey: 97
-  turnLeftKey: 100
-  shootKey: 32
-  reloadKey: 0
-  zoomNorthKey: 273
-  zoomSouthKey: 274
-  zoomEastKey: 275
-  zoomWestKey: 276
+  playerID: 
+  p1MoveForwardKey: 119
+  p1MoveBackwardKey: 115
+  p1TurnRightKey: 97
+  p1TurnLeftKey: 100
+  p1ShootKey: 32
+  p1ReloadKey: 0
+  p2MoveForwardKey: 273
+  p2MoveBackwardKey: 274
+  p2TurnRightKey: 276
+  p2TurnLeftKey: 275
+  p2ShootKey: 303
+  p2ReloadKey: 0
